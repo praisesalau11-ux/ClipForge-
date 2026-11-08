@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sign up with email | ClipForge</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="../css/index.css"></head>
+<body><div class="auth"><div class="box">
+<a class="back" href="choice.html">Back</a>
+<h1>Sign up with email</h1>
+<p class="sub">Tell us a little about you. You must be 18 or older.</p>
+<form id="f">
+<label for="fullName">Full name</label><input id="fullName" required autocomplete="name">
+<label for="username">Username</label><input id="username" required placeholder="letters, numbers, . and _" autocomplete="username">
+<label for="email">Email</label><input id="email" type="email" required autocomplete="email">
+<label for="password">Password</label><input id="password" type="password" minlength="8" required autocomplete="new-password" placeholder="At least 8 characters">
+<div class="two">
+  <div><label for="dob">Date of birth</label><input id="dob" type="date" required></div>
+  <div><label for="age">Age</label><input id="age" readonly placeholder="Automatic"></div>
+</div>
+<label for="gender">Gender</label>
+<select id="gender" required><option value="">Select</option><option>Female</option><option>Male</option><option>Other</option><option>Prefer not to say</option></select>
+<label for="country">Country</label><select id="country" required><option value="">Select your country</option></select>
+<label for="phone">Phone number</label>
+<div class="phone"><input id="dial" readonly placeholder="+__" aria-label="Dial code"><input id="phone" type="tel" required autocomplete="tel-national"></div>
+<label for="accountType">I am a</label>
+<select id="accountType" required><option value="">Select</option><option>Business owner</option><option>Marketer or agency</option><option>Content creator</option></select>
+<label for="business">Business name (optional)</label><input id="business" autocomplete="organization">
+<label class="chk"><input id="terms" type="checkbox" required> I agree to the Terms of Service and Privacy Policy.</label>
+<button class="btn" type="submit">Create account</button>
+</form>
+<p class="msg" id="msg" role="alert"></p>
+</div></div>
+<script type="module" src="../js/signup.js"></script></body></html>
