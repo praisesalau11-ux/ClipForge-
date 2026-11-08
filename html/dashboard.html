@@ -6,28 +6,34 @@
 <body>
 <header><div class="wrap"><nav>
   <a class="logo" href="dashboard.html">Clip<b>Forge</b></a>
-  <div class="user"><span id="name"></span><button class="btn alt sm" id="logout">Log out</button></div>
+  <div class="user"><a class="navlink" href="profile.html">Profile</a><button class="btn alt sm" id="logout">Log out</button></div>
 </nav></div></header>
 
 <main class="wrap dash">
   <h1 id="hello">Loading...</h1>
-  <p class="lead">Describe what you want to promote and choose what to create.</p>
+  <p class="lead">Describe your offer and get a ready-to-post ad.</p>
+  <div class="banner" id="banner" hidden>Add your business details so ads match your brand. <a href="profile.html">Complete profile</a></div>
 
-  <form id="f" class="panel">
-    <label for="prompt">Your idea</label>
-    <textarea id="prompt" rows="4" maxlength="500" required placeholder="Example: Weekend sale, 20% off all coffee beans"></textarea>
-    <div class="two">
-      <div><label for="type">Create</label>
-        <select id="type"><option>Images and caption</option><option>Voiceover</option><option>Short video</option><option>Full post pack</option></select></div>
-      <div><label for="platform">Platform</label>
-        <select id="platform"><option>Instagram</option><option>TikTok</option><option>YouTube Shorts</option><option>Facebook</option><option>LinkedIn</option><option>X</option></select></div>
-    </div>
-    <button class="btn" type="submit">Generate</button>
-    <p class="msg" id="msg" role="alert"></p>
-  </form>
+  <div class="layout">
+    <form id="f" class="panel">
+      <h2>Create an ad</h2>
+      <label for="prompt">What are you promoting?</label>
+      <textarea id="prompt" rows="4" maxlength="500" required placeholder="Example: Weekend sale, 20% off all coffee beans"></textarea>
+      <label for="goal">Goal</label>
+      <select id="goal"><option>Sales</option><option>Awareness</option><option>Bookings</option><option>Followers</option></select>
+      <label for="type">Create</label>
+      <select id="type"><option>Images and caption</option><option>Voiceover</option><option>Short video</option><option>Full post pack</option></select>
+      <label for="platform">Platform</label>
+      <select id="platform"><option>Instagram</option><option>TikTok</option><option>YouTube Shorts</option><option>Facebook</option><option>LinkedIn</option><option>X</option></select>
+      <button class="btn" type="submit">Generate ad</button>
+      <p class="msg" id="msg" role="alert"></p>
+    </form>
 
-  <h2>Your campaigns</h2>
-  <div class="list" id="list"><p class="sub">No campaigns yet. Your first one will appear here.</p></div>
+    <section>
+      <h2>Your ads</h2>
+      <div class="list" id="list"><p class="empty">Loading...</p></div>
+    </section>
+  </div>
 </main>
 <script type="module" src="../js/dashboard.js"></script>
 </body></html>

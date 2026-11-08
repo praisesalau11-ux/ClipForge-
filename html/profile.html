@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Profile | ClipForge</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/index.css">
+<link rel="stylesheet" href="../css/profile.css"></head>
+<body>
+<header><div class="wrap"><nav>
+  <a class="logo" href="dashboard.html">Clip<b>Forge</b></a>
+  <div class="user"><a class="navlink" href="dashboard.html">Dashboard</a><button class="btn alt sm" id="logout">Log out</button></div>
+</nav></div></header>
+
+<main class="wrap prof">
+  <h1>Your profile</h1>
+  <p class="lead" id="who">Loading...</p>
+  <form id="f" class="panel">
+    <h2>Business details</h2>
+    <p class="sub">ClipForge uses this to write ads that sound like your brand.</p>
+    <label for="name">Business name</label><input id="name" required maxlength="60">
+    <label for="industry">Industry</label>
+    <select id="industry"><option>Food and drink</option><option>Fashion and beauty</option><option>Health and fitness</option><option>Retail and e-commerce</option><option>Real estate</option><option>Education</option><option>Technology</option><option>Services</option><option>Other</option></select>
+    <label for="tone">Brand tone</label>
+    <select id="tone"><option>Friendly</option><option>Professional</option><option>Bold and energetic</option><option>Luxury</option><option>Playful</option><option>Trustworthy</option></select>
+    <label for="audience">Target audience</label><input id="audience" maxlength="120" placeholder="Example: busy parents in their 30s">
+    <label for="website">Website or Instagram</label><input id="website" maxlength="120">
+    <label for="about">About your business</label><textarea id="about" rows="4" maxlength="400"></textarea>
+    <button class="btn" type="submit">Save profile</button>
+    <p class="msg" id="msg" role="alert"></p>
+  </form>
+</main>
+<script type="module" src="../js/profile.js"></script>
+</body></html>
