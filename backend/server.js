@@ -41,11 +41,16 @@ app.post("/generate", async (req, res) => {
   res.json({ ok: true }); // answer now, keep working in the background
 
   try {
-    const outputs = await generate(campaign, async (name, buf, type) => {
+        const outputs = await generate(campaign, async (name, buf, type) => {
       const file = bucket.file(`users/${uid}/${id}/${name}`);
       await file.save(buf, { contentType: type });
-      const [url] = await file.getSignedUrl({ action: "read", expires: Date.now() + 6 * 24 * 60 * 60 * 1000 });
-      return url;
+      const expires = Date.now() + 6 * 24 * 60 * 60 * 1000;
+      const [url] = await file.getSignedUrl({ action: "read", expires });
+      const [dl] = await file.getSignedUrl({
+        action: "read", expires,
+        responseDisposition: `attachment; filename="clipforge-${name}"`
+      });
+      return { url, dl };
     });
     await ref.update({ status: "Done", outputs });
   } catch (e) {
