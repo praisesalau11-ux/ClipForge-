@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><script src="../js/theme.js"></script><meta name="viewport" content="width=device-width,initial-scale=1"><title>Settings | ClipForge</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/index.css">
+<link rel="stylesheet" href="../css/settings.css"></head> 
+<body>
+<header><div class="wrap"><nav>
+  <a class="logo" href="dashboard.html">Clip<b>Forge</b></a>
+  <div class="user"><a class="navlink" href="dashboard.html">Dashboard</a><button class="btn alt sm" id="logout">Log out</button></div>
+</nav></div></header>
+
+<main class="wrap sett">
+  <h1>Settings</h1>
+
+  <section class="panel">
+    <h2>Appearance</h2>
+    <p class="sub">Choose how ClipForge looks on this device.</p>
+    <div class="opts" id="themes" role="group" aria-label="Theme">
+      <button type="button" class="opt" data-mode="light">Light</button>
+      <button type="button" class="opt" data-mode="dark">Dark</button>
+      <button type="button" class="opt" data-mode="system">Match my device</button>
+    </div>
+    <p class="sub lab">Accent color</p>
+    <div class="opts" id="accents" role="group" aria-label="Accent color">
+      <button type="button" class="swatch" data-accent="violet" style="--c:#5b3df5" aria-label="Violet"></button>
+      <button type="button" class="swatch" data-accent="blue" style="--c:#2f6bff" aria-label="Blue"></button>
+      <button type="button" class="swatch" data-accent="teal" style="--c:#0f8f83" aria-label="Teal"></button>
+      <button type="button" class="swatch" data-accent="rose" style="--c:#d6336c" aria-label="Rose"></button>
+      <button type="button" class="swatch" data-accent="ember" style="--c:#e0561a" aria-label="Orange"></button>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Language</h2>
+    <p class="sub">English for now. More languages are coming.</p>
+  </section>
+
+  <section class="panel">
+    <h2>Billing and credits</h2>
+    <p class="sub">Plans and credit purchases are coming soon.</p>
+  </section>
+</main>
+<script type="module" src="../js/settings.js"></script>
+</body></html>
