@@ -101,3 +101,11 @@ export async function generate(c, save) {
   }
   return out;
 }
+export async function videoModels() {
+  const out = [];
+  const pager = await ai.models.list();
+  for await (const m of pager) {
+    if (/veo/i.test(m.name)) out.push({ name: m.name, actions: m.supportedActions });
+  }
+  return out;
+}
