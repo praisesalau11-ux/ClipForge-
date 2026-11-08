@@ -28,3 +28,4 @@ textarea:focus{outline:2px solid var(--violet);outline-offset:2px}
 @keyframes sp{to{transform:rotate(360deg)}}
 .err{color:#c0392b;font-size:14px;margin-top:8px}
 @media(prefers-reduced-motion:reduce){.spin{animation:none}}
+.pill{background:#e7e2ff;color:var(--violet);font-weight:600;border-radius:99px;padding:4px 12px;font-size:13px}
