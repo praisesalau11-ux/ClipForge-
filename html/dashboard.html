@@ -6,7 +6,11 @@
 <body>
 <header><div class="wrap"><nav>
   <a class="logo" href="dashboard.html">Clip<b>Forge</b></a>
-  <div class="user"><a class="navlink" href="profile.html">Profile</a><button class="btn alt sm" id="logout">Log out</button></div>
+  <div class="user">
+    <span class="pill" id="credits"></span>
+    <a class="navlink" href="profile.html">Profile</a>
+    <button class="btn alt sm" id="logout">Log out</button>
+  </div>
 </nav></div></header>
 
 <main class="wrap dash">
@@ -22,7 +26,12 @@
       <label for="goal">Goal</label>
       <select id="goal"><option>Sales</option><option>Awareness</option><option>Bookings</option><option>Followers</option></select>
       <label for="type">Create</label>
-      <select id="type"><option>Images and caption</option><option>Voiceover</option><option>Short video</option><option>Full post pack</option></select>
+      <select id="type">
+        <option value="Images and caption">Images and caption · 1 credit</option>
+        <option value="Voiceover">Voiceover · 1 credit</option>
+        <option value="Full post pack">Full post pack · 2 credits</option>
+        <option value="Short video">Short video · 10 credits</option>
+      </select>
       <label for="platform">Platform</label>
       <select id="platform"><option>Instagram</option><option>TikTok</option><option>YouTube Shorts</option><option>Facebook</option><option>LinkedIn</option><option>X</option></select>
       <button class="btn" type="submit">Generate ad</button>
