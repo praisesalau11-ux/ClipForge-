@@ -1,7 +1,6 @@
 import express from "express";
 import cors from "cors";
 import admin from "firebase-admin";
-import { generate } from "./generate.js";
 import { generate, videoModels } from "./generate.js";
 
 admin.initializeApp({
@@ -11,17 +10,24 @@ admin.initializeApp({
 const db = admin.firestore();
 const bucket = admin.storage().bucket();
 
+const COST = { "Images and caption": 1, "Voiceover": 1, "Full post pack": 2, "Short video": 10 };
+const FREE_CREDITS = 20;
+
 const app = express();
-app.use(cors({ origin: (process.env.ALLOWED_ORIGIN || "").split(",").map((s) => s.trim()) }));
+app.use(cors({
+  origin: process.env.ALLOWED_ORIGIN === "*"
+    ? true
+    : (process.env.ALLOWED_ORIGIN || "").split(",").map((s) => s.trim())
+}));
 app.use(express.json({ limit: "10kb" }));
 
 app.get("/", (_, res) => res.send("ClipForge backend is running"));
-app.get("/models", async (_, res) => {
-  try { res.json(await videoModels()); } catch (e) { res.status(500).json({ error: String(e.message) }); }
-});
 
-const COST = { "Images and caption": 1, "Voiceover": 1, "Full post pack": 2, "Short video": 10 };
-const FREE_CREDITS = 20;
+// Temporary check for which Veo models your key can use. Delete when done.
+app.get("/models", async (_, res) => {
+  try { res.json(await videoModels()); }
+  catch (e) { res.status(500).json({ error: String(e.message) }); }
+});
 
 app.post("/generate", async (req, res) => {
   let uid;
@@ -35,9 +41,8 @@ app.post("/generate", async (req, res) => {
   const id = String(req.body.campaignId || "");
   if (!/^[A-Za-z0-9]{10,30}$/.test(id)) return res.status(400).json({ error: "Invalid campaign." });
   const ref = db.doc(`users/${uid}/campaigns/${id}`);
+  const userRef = db.doc(`users/${uid}`);
 
-  // Claim the campaign so it can only run once
-    const userRef = db.doc(`users/${uid}`);
   const result = await db.runTransaction(async (t) => {
     const s = await t.get(ref);
     const u = await t.get(userRef);
